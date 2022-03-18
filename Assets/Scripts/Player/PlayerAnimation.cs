@@ -36,6 +36,8 @@ public class PlayerAnimation : MonoBehaviour
         if (value)
             _animator.SetTrigger("Attack");
         else
+        {
             OnSetIdleAnimation();
+        }
     }    
 }

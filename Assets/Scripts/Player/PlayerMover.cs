@@ -26,18 +26,17 @@ public class PlayerMover : MonoBehaviour
     private bool _up = true;
 
     private float _speed = 8f;
-    private float _moveUpForce = 35f;
-    private Vector3 _upVector;
+    private float _moveUpForce = 25f;
     private Vector3 _movingVector;
-     private PlayerState _currentState;
+    private PlayerState _currentState;
+    private Rigidbody _rb;
     private void Awake()
     {
         _collisionDetecter = GetComponent<CollisionDetecter>();
     }
     private void Start()
     {
-        _currentState = PlayerState.idle;
-      
+        _rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -60,26 +59,13 @@ public class PlayerMover : MonoBehaviour
         {
             if (_left || _right)
             {
-                _upVector = Vector3.up;
                 StartCoroutine(StartMoveUp());
             }
-            else if (!_right)
-            {
-                _upVector = Vector3.right;
-                StartCoroutine(StartMoveUp());
-            }
-            else if (!_left)
-            {
-                _upVector = Vector3.left;
-                StartCoroutine(StartMoveUp());
-            }
-
         }
     }
 
     public void MoveLeft()
     {
-      
         _currentState = PlayerState.leftMoving;
         _movingVector = Vector3.left;
         _speed = 8;
@@ -88,7 +74,6 @@ public class PlayerMover : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             SideMoveEvent?.Invoke();
         }
-  
     }
     public void MoveRight()
     {
@@ -100,8 +85,6 @@ public class PlayerMover : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             SideMoveEvent?.Invoke();
         }
- 
-
     }
     private void Move()
     {
@@ -120,23 +103,17 @@ public class PlayerMover : MonoBehaviour
     {
         UpMoveEvent?.Invoke(true);
         _up = false;
-        int counter = 0;
-        while(counter<15)
-        {
-            yield return new WaitForSeconds(0.02f);
-            transform.position += _upVector * _moveUpForce * Time.deltaTime;
-            counter++;
-        }
-
-        _up = true;
-        yield return new WaitForSeconds(0.5f);
+        _rb.AddForce(transform.up * -_moveUpForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.4f);
+        _rb.velocity = Vector3.zero;
+        yield return new WaitForSeconds(0.4f);
         UpMoveEvent?.Invoke(false);
+        _up = true;
     }
     public void SideMoveAllower(bool left, bool right)
     {
         _left = left;
         _right = right;
-
     }
     public void SetGround(bool value)
     {
