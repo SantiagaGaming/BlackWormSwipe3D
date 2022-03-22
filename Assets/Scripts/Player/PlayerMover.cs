@@ -19,6 +19,8 @@ public class PlayerMover : MonoBehaviour
     public UnityAction SideMoveEvent;
     public UnityAction IldeEvent;
 
+    [HideInInspector]public bool CanMove = true;
+
     private CollisionDetecter _collisionDetecter;
     private bool _isGrounded = true;
     private bool _right = false;
@@ -88,6 +90,8 @@ public class PlayerMover : MonoBehaviour
     }
     private void Move()
     {
+        if(CanMove)
+        { 
         if (_currentState == PlayerState.rightMoving && !_right)
         {
             transform.position += _movingVector * _speed * Time.deltaTime;
@@ -97,6 +101,7 @@ public class PlayerMover : MonoBehaviour
             transform.position += _movingVector * _speed * Time.deltaTime;
         }
         else transform.position = transform.position;
+        }
     }
 
    private IEnumerator StartMoveUp()

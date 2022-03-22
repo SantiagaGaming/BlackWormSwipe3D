@@ -8,6 +8,7 @@ public class CollisionDetecter : MonoBehaviour
 {
     public UnityAction LeftWallTouchedEvent;
     public UnityAction RightWallTouchedEvent;
+    public UnityAction EnemyCollideEvent;
 
     private PlayerMover _playerMover;
     private void Start()
@@ -28,6 +29,10 @@ public class CollisionDetecter : MonoBehaviour
             _playerMover.SetGround(true);
             RightWallTouchedEvent?.Invoke();
         }
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            EnemyCollideEvent?.Invoke();
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -46,6 +51,7 @@ public class CollisionDetecter : MonoBehaviour
             _playerMover.SideMoveAllower(false,false);
             _playerMover.SetGround(false);
         }
+
   
 
     }
