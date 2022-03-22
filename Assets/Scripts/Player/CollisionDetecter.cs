@@ -57,6 +57,9 @@ public class CollisionDetecter : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent(out Lava lava))
+        {
+            EnemyCollideEvent?.Invoke();
+        }
     }
 }

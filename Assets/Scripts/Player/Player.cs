@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject _worm;
     [SerializeField] private GameObject _death;
+
     private CollisionDetecter _collisionDetecter;
     private PlayerMover _playerMover;
     private void Awake()
@@ -15,7 +16,6 @@ public class Player : MonoBehaviour
         _collisionDetecter = GetComponent<CollisionDetecter>();
         _playerMover = GetComponent<PlayerMover>();
     }
-
     private void OnEnable()
     {
         _collisionDetecter.EnemyCollideEvent += OnDeath;
@@ -30,5 +30,12 @@ public class Player : MonoBehaviour
         _death.SetActive(true);
         _playerMover.CanMove = false;
         GetComponent<Collider>().enabled = false;
+        StartCoroutine(DisableDeathObject());
+    }
+    private IEnumerator DisableDeathObject()
+    {
+        yield return new WaitForSeconds(0.5f);
+            _death.SetActive(false);
     }
 }
+

@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     }
     private IEnumerator DisableEnemy()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
