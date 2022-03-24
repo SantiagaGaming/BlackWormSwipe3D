@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     }
     private IEnumerator DisableEnemy()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         gameObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
@@ -25,5 +25,10 @@ public class Enemy : MonoBehaviour
         {
             Death();
         }
+    }
+    public void Revive()
+    {
+        _death.SetActive(false);
+        _enemy.SetActive(true);
     }
 }

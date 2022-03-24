@@ -140,9 +140,11 @@ public class PlayerMover : MonoBehaviour
     private void OnLeftWallStand()
     {
         transform.localRotation = Quaternion.Euler(180, 180, 90);
+        _moveUpForce = 55;
     }
     private void OnRightWallStand()
     {
         transform.localRotation = Quaternion.Euler(180, 0, 90);
+        _moveUpForce = 20;
     }
 }
