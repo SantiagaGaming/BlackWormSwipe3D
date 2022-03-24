@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _enemy;
     [SerializeField] private GameObject _death;
 
-    public void Death()
+    public virtual void Death()
     {
         GetComponent<Collider>().enabled = false;
         _enemy.SetActive(false);
@@ -30,5 +30,6 @@ public class Enemy : MonoBehaviour
     {
         _death.SetActive(false);
         _enemy.SetActive(true);
+        GetComponent<Collider>().enabled = true;
     }
 }
