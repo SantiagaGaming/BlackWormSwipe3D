@@ -35,21 +35,11 @@ public class SideEnemySpawner :Pool
     {
         if (value == 0)
         {
-
-            enemy.transform.rotation = Quaternion.Euler(0, 0, 0);
+            enemy.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (value == 1)
         {
-            enemy.transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        else if (value == 2)
-        {
-
-            enemy.transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else if (value == 3)
-        {
-            enemy.transform.rotation = Quaternion.Euler(0, 0, -90);
+            enemy.transform.rotation = Quaternion.Euler(0, 0,0 );
         }
 
     }

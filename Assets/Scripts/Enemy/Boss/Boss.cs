@@ -8,8 +8,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject _death;
     [SerializeField] private GameObject _leftHand;
     [SerializeField] private GameObject _rightHand;
-    private int _hp = 2;
 
+    private int _hp = 2;
     private void OnEnable()
     {
         _leftHand.GetComponent<BossHand>().DisableHandEvent += OnTakeDamage;
