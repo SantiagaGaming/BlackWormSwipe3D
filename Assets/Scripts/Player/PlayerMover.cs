@@ -75,6 +75,7 @@ public class PlayerMover : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             SideMoveEvent?.Invoke();
+            SoundPlayer.Instance.PlayFlySound();
         }
     }
     public void MoveRight()
@@ -86,6 +87,7 @@ public class PlayerMover : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             SideMoveEvent?.Invoke();
+            SoundPlayer.Instance.PlayFlySound();
         }
     }
     private void Move()
@@ -106,6 +108,7 @@ public class PlayerMover : MonoBehaviour
 
    private IEnumerator StartMoveUp()
     {
+        SoundPlayer.Instance.PlayAttackSound();
         UpMoveEvent?.Invoke(true);
         _up = false;
         _rb.AddForce(transform.up * -_moveUpForce, ForceMode.Impulse);

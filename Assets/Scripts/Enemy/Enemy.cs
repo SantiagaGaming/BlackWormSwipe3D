@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.TryGetComponent(out Weapon weapon) || other.TryGetComponent(out Lava lava))
         {
+            SoundPlayer.Instance.PlayEnemyDieSound();
             Death();
         }
     }

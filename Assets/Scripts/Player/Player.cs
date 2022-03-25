@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     }
     private void OnDeath()
     {
+        SoundPlayer.Instance.PlayLoseSound();
         _worm.SetActive(false);
         _death.SetActive(true);
         _playerMover.CanMove = false;
