@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Weapon weapon))
+        if(other.TryGetComponent(out Weapon weapon) || other.TryGetComponent(out Lava lava))
         {
             Death();
         }

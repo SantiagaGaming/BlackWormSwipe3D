@@ -10,7 +10,7 @@ public class Box : MonoBehaviour
     [SerializeField] private GameObject _enemyRight;
     private void Start()
     {
-        transform.position = new Vector3(Random.Range(-0.7f, 0.7f), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Random.Range(-0.5f, 0.5f), transform.position.y, transform.position.z);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -36,11 +36,13 @@ public class Box : MonoBehaviour
                 break;
             case 1:
                 _enemyLeft.SetActive(true);
+                _enemyLeft.GetComponent<Enemy>().Revive();
                 _enemyRight.SetActive(false);
                 break;
             case 2:
                 _enemyLeft.SetActive(false);
                 _enemyRight.SetActive(true);
+                _enemyRight.GetComponent<Enemy>().Revive();
                 break;
         }
     }
