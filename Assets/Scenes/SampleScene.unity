@@ -218,6 +218,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58874525}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &60028451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60028453}
+  - component: {fileID: 60028452}
+  m_Layer: 0
+  m_Name: ToughnessController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &60028452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60028451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6e76c444787104ebc046c52ddb4034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sideEnemySpawner: {fileID: 1163336093}
+  _flyEnemySpawner: {fileID: 1949877927}
+  _secretEnemySpawner: {fileID: 669073534}
+--- !u!4 &60028453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60028451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1975177, y: 13.077771, z: 3.4185295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107530765
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +907,7 @@ MonoBehaviour:
   - {fileID: 242649790}
   - {fileID: 444293389}
   - {fileID: 944503135}
-  _secondeBetweenSpawn: 1
+  _secondeBetweenSpawn: 40
   _rotate: 1
 --- !u!1 &690695021 stripped
 GameObject:
@@ -1693,7 +1739,7 @@ MonoBehaviour:
   _spawnPoints:
   - {fileID: 1723655917}
   - {fileID: 1662988339}
-  _secondeBetweenSpawn: 3
+  _secondeBetweenSpawn: 15
   _rotate: 1
 --- !u!1001 &1183703696
 PrefabInstance:
@@ -2489,7 +2535,7 @@ MonoBehaviour:
   - {fileID: 1670452477}
   - {fileID: 1937559535}
   - {fileID: 451467825}
-  _secondeBetweenSpawn: 3
+  _secondeBetweenSpawn: 20
   _rotate: 0
 --- !u!1 &2101454977
 GameObject:

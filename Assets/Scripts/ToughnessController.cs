@@ -59,5 +59,4 @@ public class ToughnessController : MonoBehaviour
             _secretEnemySpawner.SetSecondsBetweenSpawn(16);
         }
     }
-
 }
