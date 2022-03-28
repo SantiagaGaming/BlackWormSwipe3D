@@ -26,4 +26,9 @@ public class PlayerScoreController : MonoBehaviour
     {
         OnScoreChanged(scoreobject.GetObjectScore());
     }
+    public float GetPlayerScore()
+    {
+        return _score;
+    }
+
 }
