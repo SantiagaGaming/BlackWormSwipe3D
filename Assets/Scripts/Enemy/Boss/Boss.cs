@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : MonoBehaviour, IScoreObject
 {
     [SerializeField] private GameObject _boss;
     [SerializeField] private GameObject _death;
     [SerializeField] private GameObject _leftHand;
     [SerializeField] private GameObject _rightHand;
+    [SerializeField] private float _score;
 
     private int _hp = 2;
     private void OnEnable()
@@ -31,6 +32,8 @@ public class Boss : MonoBehaviour
         {
             EnableBoss(false);
             StartCoroutine(MoveBossUp());
+            PlayerScoreController playerScore = FindObjectOfType<PlayerScoreController>();
+            playerScore.ReachedScoreObject(this);
         }
     }
     private void EnableBoss(bool value)
@@ -48,5 +51,10 @@ public class Boss : MonoBehaviour
         _rightHand.SetActive(true);
         _leftHand.GetComponent<BossHand>().Revive();
         _rightHand.GetComponent<BossHand>().Revive();
+    }
+
+    public float GetObjectScore()
+    {
+        return _score;
     }
 }

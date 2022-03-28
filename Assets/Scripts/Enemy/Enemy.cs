@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour,IScoreObject
         if(other.TryGetComponent(out Weapon weapon))
         {
             SoundPlayer.Instance.PlayEnemyDieSound();
+            PlayerScoreController playerScore = FindObjectOfType<PlayerScoreController>();
+            playerScore.ReachedScoreObject(this);
             Death();
         }
     }

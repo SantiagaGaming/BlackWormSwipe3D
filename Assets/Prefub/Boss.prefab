@@ -312,6 +312,7 @@ MonoBehaviour:
   _death: {fileID: 7690006936383301948}
   _leftHand: {fileID: 7690006935931408713}
   _rightHand: {fileID: 7690006936868232024}
+  _score: 1000
 --- !u!65 &1848610279756035036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -889,6 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 7690006937047870349}
   _death: {fileID: 7690006937406219730}
+  _scoreForKill: 0
 --- !u!54 &7690006935931408820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1636,6 +1638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 7690006936749586756}
   _death: {fileID: 7690006936348838988}
+  _scoreForKill: 0
 --- !u!1 &7690006937047870349
 GameObject:
   m_ObjectHideFlags: 0

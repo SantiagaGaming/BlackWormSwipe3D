@@ -791,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 6981905558524160454}
   _death: {fileID: 5446251406458804144}
+  _scoreForKill: 100
 --- !u!54 &5446251405507238238
 Rigidbody:
   m_ObjectHideFlags: 0

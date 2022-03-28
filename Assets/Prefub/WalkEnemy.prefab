@@ -1546,6 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 2791234894289653016}
   _death: {fileID: 2791234895839694046}
+  _scoreForKill: 200
 --- !u!65 &8210966132224925750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1588,6 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1
+  _side: 0
 --- !u!1 &8556342778610102016
 GameObject:
   m_ObjectHideFlags: 0

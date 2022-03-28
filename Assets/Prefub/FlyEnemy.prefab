@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 2
+  _side: 0
 --- !u!114 &760835561881507284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 7920225807405814935}
   _death: {fileID: 7920225808275230090}
+  _scoreForKill: 350
 --- !u!54 &760835561881507283
 Rigidbody:
   m_ObjectHideFlags: 0
