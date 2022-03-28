@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         _viev.ShowEndGameScreen();
         _pauseController.EnablePause(true);
+        if(_playerScore.GetPlayerScore()>PlayerPrefs.GetFloat("Score"))
         PlayerPrefs.SetFloat("Score", _playerScore.GetPlayerScore());
     }
     private void OnShowWeaponIcon(bool value)
