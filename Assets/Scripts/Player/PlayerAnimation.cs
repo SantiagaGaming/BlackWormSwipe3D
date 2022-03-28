@@ -13,13 +13,13 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void OnEnable()
     {
-        _playerMover.IldeEvent += OnSetIdleAnimation;
+        _playerMover.IdleEvent += OnSetIdleAnimation;
         _playerMover.UpMoveEvent += OnSetAttackAnimation;
         _playerMover.SideMoveEvent += OnSetMoveAnimation;
     }
     private void OnDisable()
     {
-        _playerMover.IldeEvent -= OnSetIdleAnimation;
+        _playerMover.IdleEvent -= OnSetIdleAnimation;
         _playerMover.UpMoveEvent -= OnSetAttackAnimation;
         _playerMover.SideMoveEvent -= OnSetMoveAnimation;
     }

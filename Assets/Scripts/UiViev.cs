@@ -14,20 +14,21 @@ public class UiViev : MonoBehaviour
     [SerializeField] private GameObject _attackIcon;
     [SerializeField] private GameObject _restartButton;
     [SerializeField] private GameObject _exitButton;
+
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _pauseText;
     [SerializeField] private Text _endPausePaneltext;
-    [SerializeField] private Button _pauseButton;
 
+    [SerializeField] private Button _pauseButton;
 
     private void Start()
     {
         _pauseButton.onClick.AddListener(() => { PauseButtonTapEvent?.Invoke(); });
-        _restartButton.GetComponent<Button>().onClick.AddListener(() => { PauseButtonTapEvent?.Invoke(); });
-        _exitButton.GetComponent<Button>().onClick.AddListener(() => { PauseButtonTapEvent?.Invoke(); });
+        _restartButton.GetComponent<Button>().onClick.AddListener(() => { RestartButtonTapEvent?.Invoke(); });
+        _exitButton.GetComponent<Button>().onClick.AddListener(() => { ExitButtonTapEvent?.Invoke(); });
     }
 
-    public void EnableAttackIcon(bool value)
+    public void ShowAttackIcon(bool value)
     {
         _attackIcon.SetActive(value);
     }
@@ -47,6 +48,7 @@ public class UiViev : MonoBehaviour
     public void ShowEndGameScreen()
     {
         _endPausePaneltext.text = "Game Over";
+        _endPauseScreen.SetActive(true);
         _pauseButton.enabled = false;
     }
 }

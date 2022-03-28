@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMover))]
 [RequireComponent(typeof(CollisionDetecter))]
 public class Player : MonoBehaviour
 {
+    public UnityAction PlayerDiedEvent;
+    
     [SerializeField] private GameObject _worm;
     [SerializeField] private GameObject _death;
 
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
             _death.SetActive(false);
+        PlayerDiedEvent?.Invoke();
     }
 }
 

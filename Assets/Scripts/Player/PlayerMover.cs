@@ -16,12 +16,14 @@ enum PlayerState
 public class PlayerMover : MonoBehaviour
 {
     public UnityAction <bool> UpMoveEvent;
+    public UnityAction<float> PlayerYpozEvent;
     public UnityAction SideMoveEvent;
-    public UnityAction IldeEvent;
+    public UnityAction IdleEvent;
 
     [HideInInspector]public bool CanMove = true;
 
     private CollisionDetecter _collisionDetecter;
+
     private bool _isGrounded = true;
     private bool _right = false;
     private bool _left = false;
@@ -29,9 +31,11 @@ public class PlayerMover : MonoBehaviour
 
     private float _speed = 8f;
     private float _moveUpForce = 25f;
+
     private Vector3 _movingVector;
     private PlayerState _currentState;
     private Rigidbody _rb;
+
     private void Awake()
     {
         _collisionDetecter = GetComponent<CollisionDetecter>();
@@ -109,14 +113,15 @@ public class PlayerMover : MonoBehaviour
    private IEnumerator StartMoveUp()
     {
         SoundPlayer.Instance.PlayAttackSound();
-        UpMoveEvent?.Invoke(true);
+        UpMoveEvent?.Invoke(_up);
         _up = false;
         _rb.AddForce(transform.up * -_moveUpForce, ForceMode.Impulse);
         yield return new WaitForSeconds(0.4f);
         _rb.velocity = Vector3.zero;
         yield return new WaitForSeconds(0.4f);
-        UpMoveEvent?.Invoke(false);
+        UpMoveEvent?.Invoke(_up);
         _up = true;
+        PlayerYpozEvent?.Invoke(transform.position.y);
     }
     public void SideMoveAllower(bool left, bool right)
     {
@@ -133,7 +138,7 @@ public class PlayerMover : MonoBehaviour
         if(_isGrounded)
         {
             _speed = 0;
-            IldeEvent?.Invoke();
+            IdleEvent?.Invoke();
         }
         else if(!_isGrounded)
         {
