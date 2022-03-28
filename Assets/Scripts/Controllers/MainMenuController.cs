@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     private void Start()
     {
         _viev.ShowHighScore(Mathf.Round(LoadHighScore()).ToString());
+        PlayerPrefs.SetInt("Sound", 1);
     }
 
     private void OnEnable()
@@ -18,12 +19,15 @@ public class MainMenuController : MonoBehaviour
         _viev.StartGameButtonTapEvent += OnLoadGameScene;
         _viev.HowToButonTapEvent += OnShowHowToPanel;
         _viev.BackButonTapEvent += OnBackToMainPanel;
+        _viev.SoundButtonTap += OnSetSound;
     }
     private void OnDisable()
     {
         _viev.StartGameButtonTapEvent -= OnLoadGameScene;
         _viev.HowToButonTapEvent -= OnShowHowToPanel;
         _viev.BackButonTapEvent -= OnBackToMainPanel;
+        _viev.SoundButtonTap -= OnSetSound;
+
     }
     private void OnLoadGameScene()
     {
@@ -46,5 +50,18 @@ public class MainMenuController : MonoBehaviour
     {
         _viev.ShowHideHowToPanel(false);
         _cameraMover.ChangeCameraPosition();
+    }
+    private void OnSetSound()
+    {
+        if(PlayerPrefs.GetInt("Sound")==1)
+        {
+            _viev.SetSoundText(false);
+            PlayerPrefs.SetInt("Sound", 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Sound", 1);
+            _viev.SetSoundText(true);
+        }
     }
 }

@@ -14,6 +14,14 @@ public class SoundPlayer : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
+    private void Start()
+    {
+        if(PlayerPrefs.GetInt("Sound")==0)
+        {
+            _audioSource.volume = 0;
+        }
+        else _audioSource.volume = 1;
+    }
 
     public void PlayAttackSound()
     {
