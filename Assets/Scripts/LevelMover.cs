@@ -10,4 +10,9 @@ public class LevelMover : MonoBehaviour
     {
         transform.position += Vector3.up * _speed * Time.deltaTime;
     }
+    public void AddSpeed(float value)
+    {
+        _speed += value;
+
+    }
 }
