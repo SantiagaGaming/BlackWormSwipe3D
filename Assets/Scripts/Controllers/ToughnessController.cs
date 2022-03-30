@@ -25,36 +25,36 @@ public class ToughnessController : MonoBehaviour
 
     private void CheckGameTime()
     {
-        if(_time>=40 && !_firstLevel)
+        if(_time>=30 && !_firstLevel)
         {
             _firstLevel = true;
-            _sideEnemySpawner.SetSecondsBetweenSpawn(8);
-            _flyEnemySpawner.SetSecondsBetweenSpawn(15);
+            _sideEnemySpawner.SetSecondsBetweenSpawn(6);
+            _flyEnemySpawner.SetSecondsBetweenSpawn(10);
         }
-        else if(_time>=100 && !_secondLevel)
+        else if(_time>=60 && !_secondLevel)
         {
             _secondLevel = true;
-            _sideEnemySpawner.SetSecondsBetweenSpawn(6);
-            _flyEnemySpawner.SetSecondsBetweenSpawn(12);
-            _secretEnemySpawner.SetSecondsBetweenSpawn(40);
+            _sideEnemySpawner.SetSecondsBetweenSpawn(4);
+            _flyEnemySpawner.SetSecondsBetweenSpawn(8);
+            _secretEnemySpawner.SetSecondsBetweenSpawn(30);
             _levelMover.AddSpeed(0.2f);
         }
-        else if (_time >= 160 & !_thirdLevel)
+        else if (_time >= 100 & !_thirdLevel)
         {
             _thirdLevel = true;
             _sideEnemySpawner.SetSecondsBetweenSpawn(3);
-            _flyEnemySpawner.SetSecondsBetweenSpawn(8);
-            _secretEnemySpawner.SetSecondsBetweenSpawn(25);
+            _flyEnemySpawner.SetSecondsBetweenSpawn(6);
+            _secretEnemySpawner.SetSecondsBetweenSpawn(20);
         }
-        else if (_time >= 200 &_forthLevel)
+        else if (_time >= 160 &_forthLevel)
         {
             _forthLevel = true;
             _sideEnemySpawner.SetSecondsBetweenSpawn(2);
-            _flyEnemySpawner.SetSecondsBetweenSpawn(6);
-            _secretEnemySpawner.SetSecondsBetweenSpawn(15);
+            _flyEnemySpawner.SetSecondsBetweenSpawn(5);
+            _secretEnemySpawner.SetSecondsBetweenSpawn(10);
             _levelMover.AddSpeed(0.2f);
         }
-        else if (_time >= 300 &&!_fifthLevel)
+        else if (_time >= 220 &&!_fifthLevel)
         {
             _fifthLevel = true;
             _sideEnemySpawner.SetSecondsBetweenSpawn(1);

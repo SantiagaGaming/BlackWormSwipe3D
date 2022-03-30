@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private PlayerMover _playerMover;
     [SerializeField] private PlayerScoreController _playerScore;
+    [SerializeField] private GameObject _sounds;
 
     private bool _paused = false;
 
@@ -38,12 +39,16 @@ public class GameManager : MonoBehaviour
             _viev.ShowPauseScreen(true);
             _paused = true;
             _pauseController.EnablePause(_paused);
+            _sounds.SetActive(false);
+            _playerMover.CanMove = false;
         }
         else
         {
             _viev.ShowPauseScreen(false);
             _paused = false;
             _pauseController.EnablePause(_paused);
+            _sounds.SetActive(true);
+            _playerMover.CanMove = true;
         }
     }
     private void OnExitToMenu()
@@ -62,6 +67,7 @@ public class GameManager : MonoBehaviour
         _pauseController.EnablePause(true);
         if(_playerScore.GetPlayerScore()>PlayerPrefs.GetFloat("Score"))
         PlayerPrefs.SetFloat("Score", _playerScore.GetPlayerScore());
+        _sounds.SetActive(false);
     }
     private void OnShowWeaponIcon(bool value)
     {

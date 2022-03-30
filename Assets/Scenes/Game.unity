@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 669073532}
-  _capacity: 3
+  _capacity: 6
   _enemies:
   - {fileID: 5419435369318415578, guid: a1f5684682abdda46a33d3b20cc2ffe0, type: 3}
   _spawnPoints:
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   - {fileID: 242649790}
   - {fileID: 444293389}
   - {fileID: 944503135}
-  _secondeBetweenSpawn: 100
+  _secondeBetweenSpawn: 60
   _rotate: 1
 --- !u!1 &703958565
 GameObject:
@@ -2713,14 +2713,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1163336091}
-  _capacity: 6
+  _capacity: 15
   _enemies:
   - {fileID: 8210966132224925749, guid: 0238b61bdf738754b943e932723412f6, type: 3}
   - {fileID: 5446251405507238232, guid: 2c6e9b6bdeb9eaa488548e73aa13f595, type: 3}
   _spawnPoints:
   - {fileID: 1723655917}
   - {fileID: 1662988339}
-  _secondeBetweenSpawn: 10
+  _secondeBetweenSpawn: 8
   _rotate: 1
 --- !u!1001 &1183703696
 PrefabInstance:
@@ -3866,6 +3866,7 @@ MonoBehaviour:
   _player: {fileID: 706471784}
   _playerMover: {fileID: 706471778}
   _playerScore: {fileID: 438262097}
+  _sounds: {fileID: 1302732906}
 --- !u!4 &1772627081
 Transform:
   m_ObjectHideFlags: 0
@@ -4046,7 +4047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1949877925}
-  _capacity: 5
+  _capacity: 15
   _enemies:
   - {fileID: 760835561881507282, guid: 226fcba82d3ae5a47a6856c776c55d6e, type: 3}
   _spawnPoints:
@@ -4055,7 +4056,7 @@ MonoBehaviour:
   - {fileID: 1670452477}
   - {fileID: 1937559535}
   - {fileID: 451467825}
-  _secondeBetweenSpawn: 30
+  _secondeBetweenSpawn: 12
   _rotate: 0
 --- !u!1 &2101454977
 GameObject:

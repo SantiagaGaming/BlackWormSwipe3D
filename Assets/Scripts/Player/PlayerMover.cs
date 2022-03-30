@@ -72,27 +72,35 @@ public class PlayerMover : MonoBehaviour
 
     public void MoveLeft()
     {
-        _currentState = PlayerState.leftMoving;
-        _movingVector = Vector3.left;
-        _speed = 8;
-        if(!_left)
+        if (CanMove)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-            SideMoveEvent?.Invoke();
-            SoundPlayer.Instance.PlayFlySound();
+            _currentState = PlayerState.leftMoving;
+            _movingVector = Vector3.left;
+            _speed = 8;
+            if (!_left)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                SideMoveEvent?.Invoke();
+                SoundPlayer.Instance.PlayFlySound();
+            }
         }
     }
     public void MoveRight()
     {
-        _currentState = PlayerState.rightMoving;
-        _movingVector = Vector3.right;
-        _speed = 8;
-        if (!_right)
+        if(CanMove)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-            SideMoveEvent?.Invoke();
-            SoundPlayer.Instance.PlayFlySound();
+            _currentState = PlayerState.rightMoving;
+            _movingVector = Vector3.right;
+            _speed = 8;
+            if (!_right)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                SideMoveEvent?.Invoke();
+                SoundPlayer.Instance.PlayFlySound();
+            }
+
         }
+
     }
     private void Move()
     {
