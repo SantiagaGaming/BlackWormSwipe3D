@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UiViev : MonoBehaviour
+public class UiView : MonoBehaviour
 {
     public UnityAction PauseButtonTapEvent;
     public UnityAction RestartButtonTapEvent;

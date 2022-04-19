@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private UiViev _viev;
+    [SerializeField] private UiView _viev;
     [SerializeField] private PauseController _pauseController;
     [SerializeField] private SceneLoader _sceneLoader;
     [SerializeField] private Player _player;
